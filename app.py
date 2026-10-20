@@ -29,27 +29,61 @@ def apply_custom_styles():
         background: transparent;
     }
 
-    /* Sidebar estilizada */
+    /* Sidebar estilizada con contraste garantizado en modo claro y oscuro */
     section[data-testid="stSidebar"] {
-        background-color: #F8FAFC;
-        border-right: 1px solid #E2E8F0;
+        background-color: #F8FAFC !important;
+        border-right: 1px solid #E2E8F0 !important;
+    }
+
+    /* Títulos de las opciones del menú lateral siempre oscuros y legibles */
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+    section[data-testid="stSidebar"] div[role="radiogroup"] label div p {
+        color: #0F172A !important;
+        font-weight: 600 !important;
+        font-size: 14.5px !important;
+    }
+
+    /* Etiqueta superior del menú lateral */
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] > label p,
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] > label {
+        color: #64748B !important;
+        font-size: 12px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.8px !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Cada opción del menú con formato de botón tipo tarjeta */
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label {
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        padding: 8px 12px !important;
+        margin-bottom: 8px !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+    }
+
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] div[role="radiogroup"] > label:hover {
+        background: #F0F9FF !important;
+        border-color: #0284C7 !important;
+        transform: translateX(3px) !important;
     }
 
     /* Botones primarios con gradiente sutil */
     .stButton button[kind="primary"] {
-        background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        letter-spacing: 0.2px;
-        padding: 0.55rem 1.2rem;
-        box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
-        transition: all 0.2s ease;
-    }
-    .stButton button[kind="primary"]:hover {
-        background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
-        box-shadow: 0 4px 8px rgba(2, 132, 199, 0.35);
-        transform: translateY(-1px);
+        background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        color: #FFFFFF !important;
+        padding: 0.55rem 1.2rem !important;
+        box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2) !important;
     }
 
     /* Tarjetas y métricas */
@@ -70,11 +104,6 @@ def apply_custom_styles():
     .stTextInput input, .stSelectbox select, .stTextArea textarea {
         border-radius: 8px !important;
         border: 1px solid #CBD5E1 !important;
-    }
-
-    /* Radio buttons y Checkboxes limpios */
-    div[data-testid="stRadio"] > label, div[data-testid="stCheckbox"] > label {
-        font-weight: 500;
     }
     </style>
     """, unsafe_allow_html=True)
