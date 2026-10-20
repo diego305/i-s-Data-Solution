@@ -10,6 +10,7 @@ from database import init_db
 from components.form_view import render_form
 from components.admin_view import render_admin
 from components.analytics_view import render_analytics
+from components.proposal_view import render_proposal
 
 
 def apply_custom_styles():
@@ -149,6 +150,7 @@ def main():
             "Módulos:",
             [
                 "📝 Nueva Entrevista",
+                "💼 Propuesta de Trabajo",
                 "📋 Panel de Administración",
                 "📊 Analítica de Clientes",
                 "ℹ️ Matriz & Metodología"
@@ -170,6 +172,8 @@ def main():
     # Enrutamiento de Módulos
     if menu == "📝 Nueva Entrevista":
         render_form()
+    elif menu == "💼 Propuesta de Trabajo":
+        render_proposal()
     elif menu == "📋 Panel de Administración":
         render_admin()
     elif menu == "📊 Analítica de Clientes":
